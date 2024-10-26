@@ -3,7 +3,7 @@ import type {
   LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
-import { Form, Link, redirect, useLoaderData } from "@remix-run/react";
+import { Form, json, NavLink, redirect, useLoaderData } from "@remix-run/react";
 import { db } from "~/utils/db.server";
 
 export const meta: MetaFunction = () => {
@@ -18,7 +18,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     orderBy: { createdAt: "desc" },
   });
 
-  return { notes };
+  return json({ notes });
 }
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -37,7 +37,7 @@ export async function action({ request }: ActionFunctionArgs) {
     },
   });
 
-  return redirect(`/${newNote.id}`);
+  return redirect(`notes/${newNote.id}`);
 }
 
 export default function Index() {
@@ -47,29 +47,29 @@ export default function Index() {
       <div className="flex flex-col items-center gap-16">
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to <span className="sr-only">Remix</span>
+            Welcome to Remix-notes-app
           </h1>
-          <Form method="post">
-            <div>
-              <label>
-                Title: <input type="text" name="title" />
-              </label>
-            </div>
-            <div>
-              <label>
-                Content: <input type="text" name="content" />
-              </label>
-              <button type="submit">New note</button>
-            </div>
-          </Form>
-          <ul>
-            {notes.map((note) => (
-              <li key={note.id}>
-                <Link to={String(note.id)}>{note.title}</Link>
-              </li>
-            ))}
-          </ul>
         </header>
+        <Form method="post">
+          <div>
+            <label>
+              Title: <input type="text" name="title" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Content: <input type="text" name="content" />
+            </label>
+            <button type="submit">New note</button>
+          </div>
+        </Form>
+        <ul>
+          {notes.map((note) => (
+            <li key={note.id}>
+              <NavLink to={`notes/${note.id}`}>{note.title}</NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
