@@ -19,12 +19,11 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
 export default function Note() {
   const { note } = useLoaderData<typeof loader>();
-  console.log(note);
   return (
-    note?.id && (
+    note.id && (
       <div>
-        <h1>{note?.title}</h1>
-        <p>{note?.content}</p>
+        <h1>{note.title}</h1>
+        <p>{note.content}</p>
       </div>
     )
   );
