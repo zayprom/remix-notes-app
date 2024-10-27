@@ -58,7 +58,7 @@ export default function Index() {
           </div>
           <div>
             <label>
-              Content: <input type="text" name="content" />
+              Content: <textarea rows={10} name="content" />
             </label>
             <button type="submit">New note</button>
           </div>
@@ -67,6 +67,7 @@ export default function Index() {
           {notes.map((note) => (
             <li key={note.id}>
               <NavLink to={`notes/${note.id}`}>{note.title}</NavLink>
+              <NavLink to={`notes/${note.id}/edit`}>Edit</NavLink>
             </li>
           ))}
         </ul>

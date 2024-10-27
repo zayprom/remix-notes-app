@@ -1,4 +1,4 @@
-import { json, redirect, useLoaderData } from "@remix-run/react";
+import { Form, json, redirect, useLoaderData } from "@remix-run/react";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { getNoteById } from "~/utils/api";
 
@@ -24,6 +24,11 @@ export default function Note() {
       <div>
         <h1>{note.title}</h1>
         <p>{note.content}</p>
+        <p>
+          <Form action="edit">
+            <button type="submit">Edit</button>
+          </Form>
+        </p>
       </div>
     )
   );
