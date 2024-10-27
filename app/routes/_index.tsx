@@ -4,7 +4,10 @@ import type {
   MetaFunction,
 } from "@remix-run/node";
 import { Form, json, NavLink, redirect, useLoaderData } from "@remix-run/react";
+import { SideBar } from "~/components/Sidebar";
 import { db } from "~/utils/db.server";
+import "../app.css";
+import { NotesList } from "~/components/Notes";
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,13 +46,14 @@ export async function action({ request }: ActionFunctionArgs) {
 export default function Index() {
   const { notes } = useLoaderData<typeof loader>();
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
-        <header className="flex flex-col items-center gap-9">
-          <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to Remix-notes-app
-          </h1>
+    <main>
+      <SideBar>
+        <header>
+          <h1>Welcome to Remix-notes-app</h1>
         </header>
+        <NotesList notes={notes} />
+      </SideBar>
+      <div>
         <Form method="post">
           <div>
             <label>
@@ -63,15 +67,7 @@ export default function Index() {
             <button type="submit">New note</button>
           </div>
         </Form>
-        <ul>
-          {notes.map((note) => (
-            <li key={note.id}>
-              <NavLink to={`notes/${note.id}`}>{note.title}</NavLink>
-              <NavLink to={`notes/${note.id}/edit`}>Edit</NavLink>
-            </li>
-          ))}
-        </ul>
       </div>
-    </div>
+    </main>
   );
 }

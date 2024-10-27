@@ -14,3 +14,8 @@ body {
   line-height: 1.5;
   color: #121212;
 }
+
+main {
+  display: flex;
+  height: 100%;
+}
