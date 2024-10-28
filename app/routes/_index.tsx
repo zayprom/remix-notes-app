@@ -8,6 +8,7 @@ import { SideBar } from "~/components/Sidebar";
 import { db } from "~/utils/db.server";
 import "../app.css";
 import { NotesList } from "~/components/Notes";
+import { NewNote } from "~/components/Details/New";
 
 export const meta: MetaFunction = () => {
   return [
@@ -53,21 +54,7 @@ export default function Index() {
         </header>
         <NotesList notes={notes} />
       </SideBar>
-      <div>
-        <Form method="post">
-          <div>
-            <label>
-              Title: <input type="text" name="title" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Content: <textarea rows={10} name="content" />
-            </label>
-            <button type="submit">New note</button>
-          </div>
-        </Form>
-      </div>
+      <NewNote />
     </main>
   );
 }
