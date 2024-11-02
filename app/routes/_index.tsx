@@ -1,21 +1,36 @@
 import type {
   ActionFunctionArgs,
+  LinksFunction,
   LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
-import { Form, json, NavLink, redirect, useLoaderData } from "@remix-run/react";
+import { json, redirect, useLoaderData } from "@remix-run/react";
 import { SideBar } from "~/components/Sidebar";
 import { db } from "~/utils/db.server";
 import "../app.css";
 import { NotesList } from "~/components/Notes";
 import { NewNote } from "~/components/Details/New";
+import "./app.css?url";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Remix Notes App" },
+    { name: "description", content: "Create notes with Remix!" },
   ];
 };
+
+export const links: LinksFunction = () => [
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+  },
+];
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const notes = await db.note.findMany({

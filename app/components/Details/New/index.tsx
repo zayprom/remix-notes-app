@@ -1,19 +1,18 @@
 import styles from "./styles.module.css";
 import { Form } from "@remix-run/react";
+import "../commonStyles.css";
 
 export const NewNote = () => {
   return (
-    <div>
+    <div className="detailSection">
       <Form method="post">
-        <div>
-          <label>
-            Title: <input type="text" name="title" />
-          </label>
+        <div className="titleSection">
+          <label>Title:</label>
+          <input type="text" name="title" />
         </div>
-        <div>
-          <label>
-            Content: <textarea rows={10} name="content" />
-          </label>
+        <div className="contentSection">
+          <label>Content:</label>
+          <textarea rows={10} name="content" />
           <button type="submit">New note</button>
         </div>
       </Form>
