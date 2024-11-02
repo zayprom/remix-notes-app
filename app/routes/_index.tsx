@@ -10,7 +10,7 @@ import { db } from "~/utils/db.server";
 import "../app.css";
 import { NotesList } from "~/components/Notes";
 import { NewNote } from "~/components/Details/New";
-import "./app.css?url";
+import stylesHref from "../app.css?url";
 
 export const meta: MetaFunction = () => {
   return [
@@ -30,6 +30,7 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  { rel: "stylesheet", href: stylesHref },
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
