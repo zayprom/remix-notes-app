@@ -11,7 +11,7 @@ export const NotesList = (props: NotesListProps) => {
   return (
     <ul className={styles.notesList}>
       {props.notes.map((note) => (
-        <SingleNote note={note} />
+        <SingleNote note={note} key={note.id} />
       ))}
     </ul>
   );
