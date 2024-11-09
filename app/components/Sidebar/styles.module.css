@@ -1,4 +1,8 @@
 .sidebar {
   width: 20%;
   padding: 0.6rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }

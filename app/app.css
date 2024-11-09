@@ -17,5 +17,10 @@ body {
 
 body {
   display: flex;
-  height: 100%;
+  gap: 1.2rem;
+}
+
+main {
+  width: 100%;
+  padding: 1.2rem;
 }

@@ -1,6 +1,35 @@
 li {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 4rem;
+  padding: 0.6rem;
+  border-radius: 7px;
+  font-size: 0.9rem;
+}
+
+.noteHeading {
+  width: 100%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
+}
+
+li:hover {
+  background-color: lightgray;
+}
+
+a {
+  text-decoration: none;
+  color: #121212;
+}
+
+.titleLink {
+  font-weight: 600;
+}
+
+.info span {
+  font-size: 0.8rem;
+  color: gray;
 }
