@@ -16,7 +16,7 @@ export const createNewNote = async () => {
   });
 };
 
-export const updateNote = async (noteId: number, data: Note) => {
+export const updateNote = async (noteId: number, data: Partial<Note>) => {
   const note = await getNoteById(noteId);
   if (!note) {
     throw new Error(`No contact found for ${note}`);

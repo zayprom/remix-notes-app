@@ -21,10 +21,7 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
   const content = formData.get("content");
   const updatedData = Object.fromEntries(formData);
   if (title && content) {
-    await updateNote(id, {
-      title: title,
-      content: content,
-    });
+    await updateNote(id, updatedData);
   }
   return redirect(`/notes/${id}`);
 };
