@@ -1,12 +1,24 @@
 import {
+  Form,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type {
+  LinksFunction,
+  LoaderFunctionArgs,
+  ActionFunctionArgs,
+} from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import stylesHref from "./app.css?url";
+import { SideBar } from "./components/Sidebar";
+import { NotesList } from "./components/Notes";
+import { db } from "./utils/db.server";
+import { NewNote } from "./components/Details/New";
+import { createNewNote } from "./utils/api";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,7 +34,21 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesHref },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export async function loader({ request }: LoaderFunctionArgs) {
+  const notes = await db.note.findMany({
+    orderBy: { createdAt: "desc" },
+  });
+
+  return json({ notes });
+}
+
+export async function action({ request }: ActionFunctionArgs) {
+  const newNote = await createNewNote();
+  return redirect(`notes/${newNote.id}/edit`);
+}
+
+export default function App() {
+  const { notes } = useLoaderData<typeof loader>();
   return (
     <html lang="en">
       <head>
@@ -32,18 +58,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+        <main>
+          <SideBar>
+            <Form method="post">
+              <button type="submit">New</button>
+            </Form>
+            <NotesList notes={notes} />
+          </SideBar>
+          <div>
+            <Outlet />
+          </div>
+          <ScrollRestoration />
+          <Scripts />
+        </main>
       </body>
     </html>
-  );
-}
-
-export default function App() {
-  return (
-    <Layout>
-      <Outlet />
-    </Layout>
   );
 }
