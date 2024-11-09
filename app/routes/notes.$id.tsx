@@ -24,11 +24,10 @@ export default function Note() {
       <div>
         <h1>{note.title}</h1>
         <p>{note.content}</p>
-        <p>
-          <Form action="edit">
-            <button type="submit">Edit</button>
-          </Form>
-        </p>
+
+        <Form action="edit">
+          <button type="submit">Edit</button>
+        </Form>
       </div>
     )
   );
