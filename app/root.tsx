@@ -17,7 +17,6 @@ import stylesHref from "./app.css?url";
 import { SideBar } from "./components/Sidebar";
 import { NotesList } from "./components/Notes";
 import { db } from "./utils/db.server";
-import { NewNote } from "./components/Details/New";
 import { createNewNote } from "./utils/api";
 
 export const links: LinksFunction = () => [

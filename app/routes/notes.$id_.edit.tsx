@@ -17,12 +17,8 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 export const action = async ({ params, request }: ActionFunctionArgs) => {
   const id = Number(params.id);
   const formData = await request.formData();
-  const title = formData.get("title");
-  const content = formData.get("content");
   const updatedData = Object.fromEntries(formData);
-  if (title && content) {
-    await updateNote(id, updatedData);
-  }
+  await updateNote(id, updatedData);
   return redirect(`/notes/${id}`);
 };
 
