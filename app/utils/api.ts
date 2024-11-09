@@ -7,13 +7,24 @@ export const getNoteById = async (noteId: number) => {
   });
 };
 
+export const createNewNote = async () => {
+  return await db.note.create({
+    data: {
+      title: "",
+      content: "",
+    },
+  });
+};
+
 export const updateNote = async (noteId: number, data: Note) => {
   const note = await getNoteById(noteId);
   if (!note) {
-    throw new Error(`No contanct found for ${note}`);
+    throw new Error(`No contact found for ${note}`);
   }
+  const title = data.title;
+  const content = data.content;
   return await db.note.update({
     where: { id: note.id },
-    data: data,
+    data: { title: title, content: content },
   });
 };
