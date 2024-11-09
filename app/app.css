@@ -15,7 +15,7 @@ body {
   color: #121212;
 }
 
-main {
+body {
   display: flex;
   height: 100%;
 }

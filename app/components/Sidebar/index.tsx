@@ -6,5 +6,5 @@ interface SideBarProps {
 }
 
 export const SideBar = (props: SideBarProps) => {
-  return <div className={styles.sidebar}>{props.children}</div>;
+  return <nav className={styles.sidebar}>{props.children}</nav>;
 };

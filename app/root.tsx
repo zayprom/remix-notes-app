@@ -57,13 +57,13 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <SideBar>
+          <Form method="post">
+            <button type="submit">New</button>
+          </Form>
+          <NotesList notes={notes} />
+        </SideBar>
         <main>
-          <SideBar>
-            <Form method="post">
-              <button type="submit">New</button>
-            </Form>
-            <NotesList notes={notes} />
-          </SideBar>
           <div>
             <Outlet />
           </div>
