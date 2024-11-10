@@ -12,7 +12,8 @@ body {
   height: 100%;
   margin: 0;
   line-height: 1.5;
-  color: #121212;
+  color: #eeeeee;
+  background-color: #111111;
 }
 
 body {
@@ -22,5 +23,36 @@ body {
 
 main {
   width: 100%;
-  padding: 1.2rem;
+  padding: 1.2rem 1.2rem 1.2rem 0;
+}
+
+.addForm {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  max-height: 3rem;
+  padding: 0.6rem 0;
+  background-color: #111111;
+}
+
+.addNewNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 7px;
+  color: #eeeeee;
+  background-color: #111111;
+  font-family: inherit;
+  cursor: pointer;
+  height: 1.4rem;
+  padding: 0.8rem;
+}
+
+.addNewNote:hover {
+  background-color: #222222;
 }

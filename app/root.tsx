@@ -58,8 +58,10 @@ export default function App() {
       </head>
       <body>
         <SideBar>
-          <Form method="post">
-            <button type="submit">New</button>
+          <Form method="post" className="addForm">
+            <button type="submit" className="addNewNote">
+              New
+            </button>
           </Form>
           <NotesList notes={notes} />
         </SideBar>

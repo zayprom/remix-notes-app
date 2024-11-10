@@ -11,12 +11,14 @@ export const SingleNote = (props: SingleNoteProps) => {
     <li className={styles.li}>
       <div className={styles.noteHeading}>
         <NavLink to={`notes/${props.note.id}`} className={styles.titleLink}>
-          {props.note.title}
+          {props.note.title ? props.note.title : "New note"}
         </NavLink>
         <NavLink to={`notes/${props.note.id}/edit`}>Edit</NavLink>
       </div>
       <div className={styles.info}>
-        <span>{props.note.content}</span>
+        <span>
+          {props.note.content ? props.note.content : "No content added"}
+        </span>
       </div>
     </li>
   );

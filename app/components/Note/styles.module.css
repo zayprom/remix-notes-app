@@ -17,12 +17,12 @@ li {
 }
 
 li:hover {
-  background-color: lightgray;
+  background-color: #222222;
 }
 
 a {
   text-decoration: none;
-  color: #121212;
+  color: #eeeeee;
 }
 
 .titleLink {
@@ -31,5 +31,5 @@ a {
 
 .info span {
   font-size: 0.8rem;
-  color: gray;
+  color: #b4b4b4;
 }

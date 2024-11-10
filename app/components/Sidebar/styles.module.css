@@ -1,8 +1,9 @@
 .sidebar {
   width: 20%;
-  padding: 0.6rem;
+  padding: 0 0.6rem 0.6rem 0.6rem;
   overflow: auto;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.2rem;
+  scrollbar-color: #222222 #111111;
 }
