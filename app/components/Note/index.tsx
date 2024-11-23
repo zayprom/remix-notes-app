@@ -11,7 +11,9 @@ export const SingleNote = (props: SingleNoteProps) => {
     <li className={styles.li}>
       <div className={styles.noteHeading}>
         <NavLink to={`notes/${props.note.id}`} className={styles.titleLink}>
-          {props.note.title ? props.note.title : "New note"}
+          {props.note.title
+            ? `${props.note.title.slice(0, 25)}...`
+            : "New note"}
         </NavLink>
         <NavLink to={`notes/${props.note.id}/edit`}>Edit</NavLink>
       </div>

@@ -5,5 +5,5 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  scrollbar-color: #222222 #111111;
+  scrollbar-color: var(--light) var(--dark);
 }
