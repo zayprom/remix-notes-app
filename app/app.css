@@ -25,7 +25,9 @@ body {
 }
 
 main {
-  width: 100%;
+  width: 80%;
+  min-width: 0;
+  flex: 1;
   height: 100%;
   padding: 1.2rem 1.2rem 1.2rem 0.6rem;
   overflow: auto;
