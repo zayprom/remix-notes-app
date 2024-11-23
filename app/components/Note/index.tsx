@@ -7,13 +7,19 @@ interface SingleNoteProps {
 }
 
 export const SingleNote = (props: SingleNoteProps) => {
-  const noteTitle = `${props.note.title.split(" ").slice(0, 3).join(" ")}...`;
+  const getFormattedText = (text: string) => {
+    const textToArray = text.split(" ");
+    const modifiedText = textToArray.slice(0, 4).join(" ");
+    console.log(modifiedText);
+
+    return textToArray.length <= 4 ? `${modifiedText}` : `${modifiedText}...`;
+  };
 
   return (
     <li className={styles.li}>
       <div className={styles.noteHeading}>
         <NavLink to={`notes/${props.note.id}`} className={styles.titleLink}>
-          {props.note.title ? noteTitle : "New note"}
+          {props.note.title ? getFormattedText(props.note.title) : "New note"}
         </NavLink>
         <NavLink className={styles.editBtn} to={`notes/${props.note.id}/edit`}>
           Edit
@@ -22,7 +28,7 @@ export const SingleNote = (props: SingleNoteProps) => {
       <div className={styles.info}>
         <span>
           {props.note.content
-            ? `${props.note.content.slice(0, 20)}...`
+            ? getFormattedText(props.note.content)
             : "No content added"}
         </span>
       </div>
