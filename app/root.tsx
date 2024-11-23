@@ -16,8 +16,8 @@ import { json, redirect } from "@remix-run/node";
 import stylesHref from "./app.css?url";
 import { SideBar } from "./components/Sidebar";
 import { NotesList } from "./components/Notes";
-import { db } from "./utils/db.server";
-import { createNewNote } from "./utils/api";
+import { db } from "./api/db.server";
+import { createNewNote } from "./api/requests";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },

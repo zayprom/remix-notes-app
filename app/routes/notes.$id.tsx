@@ -1,6 +1,6 @@
 import { Form, json, redirect, useLoaderData } from "@remix-run/react";
 import { LoaderFunctionArgs } from "@remix-run/node";
-import { getNoteById } from "~/utils/api";
+import { getNoteById } from "~/api/requests";
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const id = Number(params.id);

@@ -1,7 +1,7 @@
 import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, json, redirect, useLoaderData } from "@remix-run/react";
 import { EditNoteForm } from "~/components/Details/Edit";
-import { getNoteById, updateNote } from "~/utils/api";
+import { getNoteById, updateNote } from "~/api/requests";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const id = Number(params.id);

@@ -7,13 +7,13 @@ interface SingleNoteProps {
 }
 
 export const SingleNote = (props: SingleNoteProps) => {
+  const noteTitle = `${props.note.title.split(" ").slice(0, 3).join(" ")}...`;
+
   return (
     <li className={styles.li}>
       <div className={styles.noteHeading}>
         <NavLink to={`notes/${props.note.id}`} className={styles.titleLink}>
-          {props.note.title
-            ? `${props.note.title.slice(0, 25)}...`
-            : "New note"}
+          {props.note.title ? noteTitle : "New note"}
         </NavLink>
         <NavLink className={styles.editBtn} to={`notes/${props.note.id}/edit`}>
           Edit

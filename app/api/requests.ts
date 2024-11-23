@@ -1,5 +1,5 @@
 import { db } from "./db.server";
-import { Note } from "./types";
+import { Note } from "../utils/types";
 
 export const getNoteById = async (noteId: number) => {
   return await db.note.findUnique({
