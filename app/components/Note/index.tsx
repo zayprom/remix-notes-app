@@ -10,7 +10,6 @@ export const SingleNote = (props: SingleNoteProps) => {
   const getFormattedText = (text: string) => {
     const textToArray = text.split(" ");
     const modifiedText = textToArray.slice(0, 4).join(" ");
-    console.log(modifiedText);
 
     return textToArray.length <= 4 ? `${modifiedText}` : `${modifiedText}...`;
   };
