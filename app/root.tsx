@@ -58,7 +58,7 @@ export default function App() {
       </head>
       <body>
         <SideBar>
-          <Form method="post" className="addForm">
+          <Form method="post" id="addForm">
             <button type="submit" className="addNewNote">
               New
             </button>
@@ -66,9 +66,8 @@ export default function App() {
           <NotesList notes={notes} />
         </SideBar>
         <main>
-          <div>
-            <Outlet />
-          </div>
+          <Outlet />
+
           <ScrollRestoration />
           <Scripts />
         </main>

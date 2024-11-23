@@ -26,7 +26,7 @@ export default function EditNote() {
   const { note } = useLoaderData<typeof loader>();
 
   return (
-    <Form key={note.id} id="notes-form" method="post">
+    <Form key={note.id} id="editForm" method="post">
       <EditNoteForm defaultValues={note} />
     </Form>
   );

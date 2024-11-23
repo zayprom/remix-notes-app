@@ -1,6 +1,6 @@
-import "../commonStyles.css";
 import { Note } from "~/utils/types";
 import { useNavigate } from "@remix-run/react";
+import styles from "./styles.module.css";
 
 interface EditNoteFormProps {
   defaultValues: Note;
@@ -9,27 +9,28 @@ interface EditNoteFormProps {
 export const EditNoteForm = (props: EditNoteFormProps) => {
   const navigate = useNavigate();
   return (
-    <div className="detailSection">
-      <div className="titleSection">
-        <label>Title:</label>
+    <div className={styles.detailSection}>
+      <div className={styles.titleSection}>
+        <label>Title</label>
         <input
           type="text"
           name="title"
           defaultValue={props.defaultValues.title}
         />
       </div>
-      <div className="contentSection">
-        <label>Content:</label>
+      <div className={styles.contentSection}>
+        <label>Content</label>
         <textarea
-          rows={10}
+          // rows={10}
           name="content"
           defaultValue={props.defaultValues.content}
+          spellCheck="true"
         />
-        <button type="submit">Save</button>
-        <button type="button" onClick={() => navigate(-1)}>
-          Cancel
-        </button>
       </div>
+      <button type="submit">Save</button>
+      <button type="button" onClick={() => navigate(-1)}>
+        Cancel
+      </button>
     </div>
   );
 };

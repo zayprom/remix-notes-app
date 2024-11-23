@@ -23,10 +23,13 @@ body {
 
 main {
   width: 100%;
-  padding: 1.2rem 1.2rem 1.2rem 0;
+  height: 100%;
+  padding: 1.2rem 1.2rem 1.2rem 0.6rem;
+  overflow: auto;
+  scrollbar-color: #222222 #111111;
 }
 
-.addForm {
+#addForm {
   position: sticky;
   top: 0;
   left: 0;
@@ -37,6 +40,11 @@ main {
   max-height: 3rem;
   padding: 0.6rem 0;
   background-color: #111111;
+}
+
+#editForm {
+  width: 100%;
+  height: 100%;
 }
 
 .addNewNote {
