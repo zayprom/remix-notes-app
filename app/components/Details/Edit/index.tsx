@@ -10,6 +10,11 @@ export const EditNoteForm = (props: EditNoteFormProps) => {
   const navigate = useNavigate();
   return (
     <div className={styles.detailSection}>
+      <div className={styles.topSection}>
+        <button type="button" onClick={() => navigate(-1)}>
+          Back
+        </button>
+      </div>
       <div className={styles.titleSection}>
         <label>Title</label>
         <input
@@ -21,7 +26,6 @@ export const EditNoteForm = (props: EditNoteFormProps) => {
       <div className={styles.contentSection}>
         <label>Content</label>
         <textarea
-          // rows={10}
           name="content"
           defaultValue={props.defaultValues.content}
           spellCheck="true"

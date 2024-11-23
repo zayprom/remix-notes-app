@@ -15,7 +15,9 @@ export const SingleNote = (props: SingleNoteProps) => {
             ? `${props.note.title.slice(0, 25)}...`
             : "New note"}
         </NavLink>
-        <NavLink to={`notes/${props.note.id}/edit`}>Edit</NavLink>
+        <NavLink className={styles.editBtn} to={`notes/${props.note.id}/edit`}>
+          Edit
+        </NavLink>
       </div>
       <div className={styles.info}>
         <span>
