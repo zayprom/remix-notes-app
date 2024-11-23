@@ -22,11 +22,13 @@ export default function Note() {
   return (
     note.id && (
       <div>
-        <h1>{note.title}</h1>
-        <p>{note.content}</p>
+        <h1>{note.title ? note.title : "New note"}</h1>
+        <p>{note.content ? note.content : "No content added"}</p>
 
         <Form action="edit">
-          <button type="submit">Edit</button>
+          <button className="noteEditBtn" type="submit">
+            Edit
+          </button>
         </Form>
       </div>
     )

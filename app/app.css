@@ -47,7 +47,8 @@ main {
   height: 100%;
 }
 
-.addNewNote {
+.addNewNote,
+.noteEditBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,6 +62,7 @@ main {
   padding: 0.8rem;
 }
 
-.addNewNote:hover {
+.addNewNote:hover,
+.noteEditBtn:hover {
   background-color: #222222;
 }

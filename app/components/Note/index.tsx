@@ -17,7 +17,9 @@ export const SingleNote = (props: SingleNoteProps) => {
       </div>
       <div className={styles.info}>
         <span>
-          {props.note.content ? props.note.content : "No content added"}
+          {props.note.content
+            ? `${props.note.content.slice(0, 20)}...`
+            : "No content added"}
         </span>
       </div>
     </li>

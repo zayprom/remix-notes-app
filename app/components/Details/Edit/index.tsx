@@ -27,10 +27,12 @@ export const EditNoteForm = (props: EditNoteFormProps) => {
           spellCheck="true"
         />
       </div>
-      <button type="submit">Save</button>
-      <button type="button" onClick={() => navigate(-1)}>
-        Cancel
-      </button>
+      <div className={styles.actionSection}>
+        <button type="button" onClick={() => navigate(-1)}>
+          Cancel
+        </button>
+        <button type="submit">Save</button>
+      </div>
     </div>
   );
 };
