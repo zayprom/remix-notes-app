@@ -1,6 +1,5 @@
 .sidebar {
   min-width: fit-content;
-  width: 20%;
   padding: 0 0.6rem 0.6rem 0.6rem;
   overflow: auto;
   display: flex;
