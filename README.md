@@ -1,6 +1,6 @@
 # Remix Notes App
 
-A minimalist note-taking application built with Remix, React, and Prisma. Features a clean dark theme interface for creating and managing notes.
+A minimalist note-taking application built with React Router 7, React, and Prisma. Features a clean dark theme interface for creating and managing notes.
 
 ## Features
 
@@ -9,10 +9,11 @@ A minimalist note-taking application built with Remix, React, and Prisma. Featur
 - 🌗 Dark theme interface
 - 💾 SQLite database storage
 - 🚀 Fast and responsive UI
+- ⚡️ Modern routing with React Router 7
 
 ## Tech Stack
 
-- [Remix](https://remix.run/) - Full stack web framework
+- [React Router 7](https://reactrouter.com/) - Modern routing library
 - [React](https://reactjs.org/) - UI library
 - [Prisma](https://www.prisma.io/) - Database ORM
 - [SQLite](https://www.sqlite.org/) - Database
@@ -24,7 +25,7 @@ A minimalist note-taking application built with Remix, React, and Prisma. Featur
 ### Prerequisites
 
 - Node.js 20.0.0 or later
-- npm
+- npm 10.0.0 or later
 
 ### Installation
 
@@ -44,6 +45,7 @@ npm install
 3. Set up the database
 
 ```sh
+npx prisma generate
 npx prisma db push
 ```
 
@@ -77,10 +79,10 @@ npm start
 
 ### Production Build Output
 
-The `npm run build` command generates:
+The build process generates:
 
-- `build/server` - Server-side code
-- `build/client` - Client-side assets
+- `build/` - Production-ready application code
+- `public/build/` - Static assets and client-side bundles
 
 ## Project Structure
 
@@ -89,7 +91,7 @@ remix-notes-app/
 ├── app/
 │   ├── api/           # API and database interactions
 │   ├── components/    # React components
-│   ├── routes/        # Remix routes
+│   ├── routes/        # React Router routes
 │   └── utils/         # Utility functions
 ├── prisma/
 │   └── schema.prisma  # Database schema
