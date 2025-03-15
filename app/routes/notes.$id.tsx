@@ -14,7 +14,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   if (!note) {
     throw new Response("Note ID not found", { status: 404 });
   }
-  return json({ note });
+  return { note };
 };
 
 export default function Note() {

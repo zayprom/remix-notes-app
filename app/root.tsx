@@ -12,7 +12,7 @@ import type {
   LoaderFunctionArgs,
   ActionFunctionArgs,
 } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import stylesHref from "./app.css?url";
 import { SideBar } from "./components/Sidebar";
 import { NotesList } from "./components/Notes";
@@ -38,7 +38,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     orderBy: { createdAt: "desc" },
   });
 
-  return json({ notes });
+  return { notes };
 }
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -48,6 +48,11 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function App() {
   const { notes } = useLoaderData<typeof loader>();
+  const formattedNotes = notes.map((note) => ({
+    ...note,
+    createdAt: note.createdAt.toISOString(),
+    updatedAt: note.updatedAt.toISOString(),
+  }));
   return (
     <html lang="en">
       <head>
@@ -63,7 +68,7 @@ export default function App() {
               New
             </button>
           </Form>
-          <NotesList notes={notes} />
+          <NotesList notes={formattedNotes} />
         </SideBar>
         <main>
           <Outlet />

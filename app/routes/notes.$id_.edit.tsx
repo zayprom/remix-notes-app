@@ -1,5 +1,5 @@
 import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, json, redirect, useLoaderData } from "@remix-run/react";
+import { Form, redirect, useLoaderData } from "@remix-run/react";
 import { EditNoteForm } from "~/components/Details/Edit";
 import { getNoteById, updateNote } from "~/api/requests";
 
@@ -11,7 +11,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     throw new Response("Note not found", { status: 404 });
   }
 
-  return json({ note });
+  return { note };
 };
 
 export const action = async ({ params, request }: ActionFunctionArgs) => {
@@ -24,10 +24,14 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
 
 export default function EditNote() {
   const { note } = useLoaderData<typeof loader>();
-
+  const formattedNote = {
+    ...note,
+    createdAt: note.createdAt.toISOString(),
+    updatedAt: note.updatedAt.toISOString(),
+  };
   return (
     <Form key={note.id} id="editForm" method="post">
-      <EditNoteForm defaultValues={note} />
+      <EditNoteForm defaultValues={formattedNote} />
     </Form>
   );
 }
