@@ -1,4 +1,4 @@
-import type { MetaFunction, LinksFunction } from "@remix-run/node";
+import type { MetaFunction, LinksFunction } from "react-router";
 import "../app.css";
 import stylesHref from "../app.css?url";
 

@@ -1,5 +1,5 @@
 import { Note } from "~/utils/types";
-import { useNavigate } from "@remix-run/react";
+import { useNavigate } from "react-router";
 import styles from "./styles.module.css";
 
 interface EditNoteFormProps {

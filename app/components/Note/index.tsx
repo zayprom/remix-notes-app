@@ -1,5 +1,5 @@
 import { Note } from "~/utils/types";
-import { NavLink } from "@remix-run/react";
+import { NavLink } from "react-router";
 import styles from "./styles.module.css";
 
 interface SingleNoteProps {

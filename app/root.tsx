@@ -1,18 +1,6 @@
-import {
-  Form,
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData,
-} from "@remix-run/react";
-import type {
-  LinksFunction,
-  LoaderFunctionArgs,
-  ActionFunctionArgs,
-} from "@remix-run/node";
-import { redirect } from "@remix-run/node";
+import { Form, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "react-router";
+import type { LinksFunction, LoaderFunctionArgs, ActionFunctionArgs } from "react-router";
+import { redirect } from "react-router";
 import stylesHref from "./app.css?url";
 import { SideBar } from "./components/Sidebar";
 import { NotesList } from "./components/Notes";

@@ -1,5 +1,6 @@
-import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, redirect, useLoaderData } from "@remix-run/react";
+import { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
+import { Form, useLoaderData } from "react-router";
+import { redirect } from "react-router";
 import { EditNoteForm } from "~/components/Details/Edit";
 import { getNoteById, updateNote } from "~/api/requests";
 

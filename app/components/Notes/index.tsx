@@ -1,4 +1,4 @@
-import { NavLink } from "@remix-run/react";
+import { NavLink } from "react-router";
 import { Note } from "~/utils/types";
 import styles from "./styles.module.css";
 import { SingleNote } from "../Note";
